@@ -38,10 +38,10 @@
 *.color15:      #fafafa
 
 ! URxvt
-URxvt.font:             xft:Iosevka:style=Regular:pixelsize=14
-URxvt.boldFont:         xft:Iosevka:style=Bold:pixelsize=14
-URxvt.italicFont:       xft:Iosevka:style=Italic:pixelsize=14
-URxvt.boldItalicFont:   xft:Iosevka:style=Bold Italic:pixelsize=14
+URxvt.font:             xft:Iosevka:style=Regular:pixelsize=14,monospace
+URxvt.boldFont:         xft:Iosevka:style=Bold:pixelsize=14,monospace
+URxvt.italicFont:       xft:Iosevka:style=Italic:pixelsize=14,monospace
+URxvt.boldItalicFont:   xft:Iosevka:style=Bold Italic:pixelsize=14,monospace
 URxvt.scrollBar:        false
 URxvt.depth:            32
 URxvt.iso14755:         false

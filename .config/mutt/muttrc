@@ -1,4 +1,4 @@
-source 'gpg -dq "$HOME"/.mutt.gpg |'
+source "gpg -dq $HOME/.mutt.gpg |"
 
 set imap_user="$my_email"
 set imap_pass="$my_pass"
