@@ -1,0 +1,47 @@
+*colorUL:        #2aa198
+
+! special
+*.foreground:   #f5f5f5
+*.background:   #1d1a17
+*.cursorColor:  #e3e3e3
+
+! black
+*.color0:       #151515
+*.color8:       #404040
+
+! red
+*.color1:       #af1e0b
+*.color9:       #d4311c
+
+! green
+*.color2:       #2a7f41
+*.color10:      #4f9f64
+
+! yellow
+*.color3:       #f7f134
+*.color11:      #fffa5a
+
+! blue
+*.color4:       #306f84
+*.color12:      #4b8699
+
+! magenta
+*.color5:       #a1367e
+*.color13:      #bb589b
+
+! cyan
+*.color6:       #2e9783
+*.color14:      #7cccbd
+
+! white
+*.color7:       #d0d0d0
+*.color15:      #fafafa
+
+! URxvt
+URxvt.font:             xft:Iosevka:style=Regular:pixelsize=14
+URxvt.boldFont:         xft:Iosevka:style=Bold:pixelsize=14
+URxvt.italicFont:       xft:Iosevka:style=Italic:pixelsize=14
+URxvt.boldItalicFont:   xft:Iosevka:style=Bold Italic:pixelsize=14
+URxvt.scrollBar:        false
+URxvt.depth:            32
+URxvt.iso14755:         false
