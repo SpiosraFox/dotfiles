@@ -65,16 +65,16 @@ bindsym $mod+a focus parent
 
 # define names for default workspaces for which we configure key bindings later on
 # we use variables to avoid repeating the names in multiple places
-set $ws1 "social"
+set $ws1 "home"
 set $ws2 "steam"
-set $ws3 "www"
-set $ws4 "www-2"
-set $ws5 "work"
-set $ws6 "6"
-set $ws7 "spotify"
-set $ws8 "game"
-set $ws9 "9"
-set $ws10 "10"
+set $ws3 "social"
+set $ws4 "www"
+set $ws5 "www-2"
+set $ws6 "spotify"
+set $ws7 "work"
+set $ws8 "work-2"
+set $ws9 "game"
+set $ws10 "extra"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
