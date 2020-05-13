@@ -1,3 +1,4 @@
+colo industry
 syntax enable
 
 set shiftwidth=4
