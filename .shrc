@@ -22,6 +22,7 @@ alias gitpull='git pull'
 alias gitpush='git push'
 alias gits='git status'
 alias ls="ls --color=auto"
+alias sys='sudo systemctl'
 alias vi="vim"
 alias windows="virsh start win10"
 
