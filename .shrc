@@ -12,6 +12,10 @@ esac
 
 # aliases
 alias clear-tmp="rm -rf $HOME/tmp/*"
+alias gitb='git branch'
+alias gitc='git commit -m'
+alias gitch='git checkout'
+alias gits='git status'
 alias ls="ls --color=auto"
 alias vi="vim"
 alias windows="virsh start win10"

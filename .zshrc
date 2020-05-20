@@ -7,3 +7,6 @@ compinit
 
 # set prompt
 PS1='[%T %n@%m %~]%# > '
+
+# binds
+bindkey -v
