@@ -67,5 +67,9 @@
     XF86MonBrightnessDown
 
 # lock screen
-"i3lock -c 000000 -i $HOME/.lockscreen.png"
+"i3lock -ec 000000 -i $HOME/.lockscreen.png"
     Mod1+l
+
+# lock screen, suspending system as well
+"i3lock -ec 000000 -i $HOME/.lockscreen.png && systemctl suspend"
+    Mod1+Shift+l
