@@ -44,6 +44,8 @@ label = %date% %time%
 [module/i3]
 type = internal/i3
 
+index-sort = true
+
 format = <label-state> <label-mode>
 
 label-focused = %name%
