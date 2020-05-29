@@ -11,7 +11,7 @@ font-0 = DejaVu Sans
 font-1 = Joy Pixels:scale=10
 
 modules-left = i3 music
-modules-right = network pulseaudio xkeyboard battery temperature date
+modules-right = wired-network wireless-network pulseaudio xkeyboard battery temperature date
 
 tray-maxsize = 6
 tray-position = right
@@ -70,9 +70,21 @@ format = <label>
 
 label = ♫ %output% ♫
 
-[module/network]
+[module/wired-network]
 type = internal/network
+interface = enp3s0
 
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+
+label-connected = %local_ip% / %local_ip6%
+label-connected-foreground = #3ee149
+
+label-disconnected = Not Connected
+label-disconnected-foreground = #f00
+
+[module/wireless-network]
+type = internal/network
 interface = wlp4s0
 
 format-connected = <label-connected>
