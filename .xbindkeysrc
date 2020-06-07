@@ -27,7 +27,7 @@
     Shift+Print
 
 # increase output volume
-"pactl set-sink-volume @DEFAULT_SINK@ +2%"
+"$HOME/bin/raise-vol.sh"
     XF86AudioRaiseVolume
 
 # decrease output volume
