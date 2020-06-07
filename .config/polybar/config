@@ -66,11 +66,11 @@ label-layout =  %name%
 
 [module/network]
 type = custom/script
-exec = $XDG_CONFIG_HOME/polybar/scripts/network.sh
+exec = ${env:NETWORK_SCRIPT}
 
 [module/temperature]
 type = internal/temperature
-hwmon-path = /sys/class/hwmon/hwmon5/temp1_input
+hwmon-path = ${env:HWMON}
 base-temperature = 20
 warn-temperature = 70
 format = <ramp> <label>
