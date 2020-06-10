@@ -38,10 +38,13 @@
 *.color15:      #fafafa
 
 ! URxvt
-URxvt.font:             xft:Iosevka:style=Regular:pixelsize=14,monospace
-URxvt.boldFont:         xft:Iosevka:style=Bold:pixelsize=14,monospace
-URxvt.italicFont:       xft:Iosevka:style=Italic:pixelsize=14,monospace
-URxvt.boldItalicFont:   xft:Iosevka:style=Bold Italic:pixelsize=14,monospace
+URxvt.font:             xft:Hack:style=Regular:pixelsize=12,monospace
+URxvt.boldFont:         xft:Hack:style=Bold:pixelsize=12,monospace
+URxvt.italicFont:       xft:Hack:style=Italic:pixelsize=12,monospace
+URxvt.boldItalicFont:   xft:Hack:style=Bold Italic:pixelsize=12,monospace
 URxvt.scrollBar:        false
 URxvt.depth:            32
 URxvt.iso14755:         false
+
+! Xcursor
+Xcursor.theme: Qogir-manjaro
