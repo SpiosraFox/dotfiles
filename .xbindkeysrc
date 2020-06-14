@@ -14,6 +14,14 @@
 "rofi -show ssh"
     Mod4+Shift+s
 
+# start password selection
+"rofi-pass"
+    Mod4+p
+
+# start combi menu
+"rofi -show combi"
+    Mod4+q
+
 # capture screen
 "scrot -q 100 -z screen.png"
     Print
