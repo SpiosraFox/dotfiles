@@ -18,6 +18,7 @@ fi
 
 # aliases
 alias ls="ls --color=auto"
+alias prename="perl-rename"
 alias vi="vim"
 alias windows="virsh start win10"
 
