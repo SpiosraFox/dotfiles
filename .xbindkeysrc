@@ -22,17 +22,21 @@
 "rofi -show combi"
     Mod4+q
 
-# capture screen
-"scrot -q 100 -z screen.png"
+# capture current screen
+"$HOME/bin/capture-current-screen.sh"
     Print
 
-# capture window
-"scrot -q 100 -uz screen.png"
+# capture entire screenspace
+"maim -u "$HOME/screen.png""
     Mod4+Print
 
-# capture selection
-"scrot -q 100 -sz screen.png"
+# capture window
+"maim -ui "$(xdotool getactivewindow)" "$HOME/screen.png""
     Shift+Print
+
+# capture selection
+"maim -us "$HOME/screen.png""
+    Mod1+Print
 
 # increase output volume
 "$HOME/bin/raise-vol.sh"
