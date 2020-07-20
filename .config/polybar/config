@@ -9,7 +9,7 @@ module-margin-right = 2
 font-0 = DejaVu Sans:style=Book:size=10
 font-1 = Font Awesome 5 Free:style=Solid
 modules-left = i3
-modules-right = network audio keyboard battery temperature date
+modules-right = weather network audio keyboard cpu-temperature gpu-temperature date
 
 
 ; ----- MODULES -----
@@ -39,6 +39,34 @@ ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
 
+[module/cpu-temperature]
+type = internal/temperature
+hwmon-path = ${env:CPU_HWMON}
+base-temperature = 35 
+warn-temperature = 80
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+label = CPU, %temperature-c%
+label-warn = CPU, %temperature-c%
+label-warn-foreground = #f00
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+
+[module/gpu-temperature]
+type = internal/temperature
+hwmon-path = ${env:GPU_HWMON}
+base-temperature = 25
+warn-temperature = 94
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+label = GPU, %temperature-c%
+label-warn = GPU, %temperature-c%
+label-warn-foreground = #f00
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+
 [module/date]
 type = internal/date
 interval = 1.0
@@ -66,18 +94,10 @@ label-layout =  %name%
 
 [module/network]
 type = custom/script
+interval = 5
 exec = ${env:NETWORK_SCRIPT}
 
-[module/temperature]
-type = internal/temperature
-hwmon-path = ${env:HWMON}
-base-temperature = 20
-warn-temperature = 70
-format = <ramp> <label>
-format-warn = <ramp> <label-warn>
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = #f00
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+[module/weather]
+type = custom/script
+interval = 300
+exec = ${env:WEATHER_SCRIPT}

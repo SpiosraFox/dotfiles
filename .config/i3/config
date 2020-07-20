@@ -141,7 +141,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # start bar
-exec_always --no-startup-id $XDG_CONFIG_HOME/polybar/launch.sh
+exec_always --no-startup-id "$XDG_CONFIG_HOME/polybar/launch.sh"
 
 # start picom
 exec picom -b

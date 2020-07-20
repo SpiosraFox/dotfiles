@@ -1,18 +1,20 @@
 #!/bin/sh
-# Kill existing instances
+# Kill existing instances.
 pkill polybar
 while pgrep -u "$UID" -x polybar > /dev/null; do
     sleep 1
 done
 
 # No thermal zones and hwmon files change? Working around it...
-name="amdgpu"
+cpu_name="k10temp"
+gpu_name="amdgpu"
 for hwmon in /sys/class/hwmon/*; do
-    grep "$name" "$hwmon/name" > /dev/null
-    if [ "$?" -eq 0 ]; then
-        hwmon="$hwmon/temp1_input"
-        break
-    fi
+    name="$(cat "$hwmon/name")"
+    [ "$name" = "$cpu_name" ] && cpu_hwmon="$hwmon/temp1_input"
+    [ "$name" = "$gpu_name" ] && gpu_hwmon="$hwmon/temp1_input"
 done
 
-NETWORK_SCRIPT="$XDG_CONFIG_HOME/polybar/scripts/network.sh" HWMON="$hwmon" polybar bar &
+NETWORK_SCRIPT="$XDG_CONFIG_HOME/polybar/scripts/network.sh" \
+WEATHER_SCRIPT="$XDG_CONFIG_HOME/polybar/scripts/weather-wrapper.sh" \
+CPU_HWMON="$cpu_hwmon" \
+GPU_HWMON="$gpu_hwmon" polybar bar
