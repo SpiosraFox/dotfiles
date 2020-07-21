@@ -53,6 +53,14 @@ ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 
+[module/date]
+type = internal/date
+interval = 1.0
+date = %Y-%m-%d
+time = %H:%M
+format =  <label>
+label = %date% %time%
+
 [module/gpu-temperature]
 type = internal/temperature
 hwmon-path = ${env:GPU_HWMON}
@@ -66,14 +74,6 @@ label-warn-foreground = #f00
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-
-[module/date]
-type = internal/date
-interval = 1.0
-date = %Y-%m-%d
-time = %H:%M
-format =  <label>
-label = %date% %time%
 
 [module/i3]
 type = internal/i3
@@ -99,5 +99,5 @@ exec = ${env:NETWORK_SCRIPT}
 
 [module/weather]
 type = custom/script
-interval = 300
+interval = 60
 exec = ${env:WEATHER_SCRIPT}
