@@ -144,10 +144,10 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id "$XDG_CONFIG_HOME/polybar/launch.sh"
 
 # start picom
-exec picom -b
+exec --no-startup-id picom -b
 
 # start auth agent
-exec lxpolkit
+exec --no-startup-id lxpolkit
 
 # set window borders
 for_window [ class = ".*" ] border pixel 0
