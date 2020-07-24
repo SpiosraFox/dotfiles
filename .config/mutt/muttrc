@@ -16,4 +16,6 @@ set ssl_force_tls=yes
 
 set mailcap_path="$XDG_CONFIG_HOME/mutt/mailcap"
 
+bind index G imap-fetch-mail
+
 auto_view text/html

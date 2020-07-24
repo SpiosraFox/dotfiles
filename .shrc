@@ -11,7 +11,7 @@ case "$-" in
 esac
 
 # start and/or set ssh-agent variables
-if ! pgrep -u "$UID" -x ssh-agent > /dev/null; then
+if ! pgrep -xu "$(id -ru)" ssh-agent > /dev/null; then
     ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
 fi
 [ -z "$SSH_AUTH_SOCK" ] && . "$XDG_RUNTIME_DIR/ssh-agent.env" > /dev/null
