@@ -1,7 +1,7 @@
 #!/bin/sh
 # Kill existing instances.
 pkill polybar
-while pgrep -u "$UID" -x polybar > /dev/null; do
+while pgrep -xu "$(id -ru)" polybar > /dev/null; do
     sleep 1
 done
 
