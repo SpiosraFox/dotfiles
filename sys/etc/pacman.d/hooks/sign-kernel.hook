@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = linux
+
+[Action]
+Description = Signing kernel...
+When = PostTransaction
+Exec = /usr/local/sbin/sign-kernel.sh
+Depends = sbsigntools
