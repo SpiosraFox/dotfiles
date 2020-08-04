@@ -8,6 +8,7 @@ module-margin-left = 2
 module-margin-right = 2
 font-0 = DejaVu Sans:style=Book:size=10
 font-1 = Font Awesome 5 Free:style=Solid
+enable-ipc = true
 modules-left = i3
 modules-right = weather network audio microphone keyboard cpu-temperature gpu-temperature date
 
