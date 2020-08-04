@@ -14,6 +14,7 @@ for hwmon in /sys/class/hwmon/*; do
     [ "$name" = "$gpu_name" ] && gpu_hwmon="$hwmon/temp1_input"
 done
 
+MICROPHONE_SCRIPT="$XDG_CONFIG_HOME/polybar/scripts/microphone.sh" \
 NETWORK_SCRIPT="$XDG_CONFIG_HOME/polybar/scripts/network.sh" \
 WEATHER_SCRIPT="$XDG_CONFIG_HOME/polybar/scripts/weather-wrapper.sh" \
 CPU_HWMON="$cpu_hwmon" \

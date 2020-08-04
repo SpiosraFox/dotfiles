@@ -51,7 +51,7 @@
     XF86AudioMute
 
 # mute input
-"pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+"$HOME/bin/mute-microphone.sh"
     shift+XF86AudioMute
 
 # play/pause media

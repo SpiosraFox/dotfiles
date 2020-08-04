@@ -9,7 +9,7 @@ module-margin-right = 2
 font-0 = DejaVu Sans:style=Book:size=10
 font-1 = Font Awesome 5 Free:style=Solid
 modules-left = i3
-modules-right = weather network audio keyboard cpu-temperature gpu-temperature date
+modules-right = weather network audio microphone keyboard cpu-temperature gpu-temperature date
 
 
 ; ----- MODULES -----
@@ -91,6 +91,12 @@ label-separator = |
 [module/keyboard]
 type = internal/xkeyboard
 label-layout =  %name%
+
+[module/microphone]
+type = custom/ipc
+hook-0 = ${env:MICROPHONE_SCRIPT}
+initial = 1
+format = <output>
 
 [module/network]
 type = custom/script
