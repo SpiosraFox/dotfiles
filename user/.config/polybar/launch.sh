@@ -18,4 +18,4 @@ MICROPHONE_SCRIPT="$XDG_CONFIG_HOME/polybar/scripts/microphone.sh" \
 NETWORK_SCRIPT="$XDG_CONFIG_HOME/polybar/scripts/network.sh" \
 WEATHER_SCRIPT="$XDG_CONFIG_HOME/polybar/scripts/weather-wrapper.sh" \
 CPU_HWMON="$cpu_hwmon" \
-GPU_HWMON="$gpu_hwmon" polybar bar
+GPU_HWMON="$gpu_hwmon" exec polybar bar
