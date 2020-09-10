@@ -83,5 +83,5 @@
     Mod1+l
 
 # lock screen, suspending system as well
-"i3lock -ec 000000 -i "$HOME/.lockscreen.png" && systemctl suspend"
+"i3lock -ec 000000 -i "$HOME/.lockscreen.png"; systemctl suspend"
     Mod1+Shift+l

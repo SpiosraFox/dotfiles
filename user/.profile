@@ -1,5 +1,5 @@
 # define variables
-[ -z "$DISPLAY" ] && export BROWSER=lynx || export BROWSER=brave
+[ -z "$DISPLAY" ] && export BROWSER=lynx || export BROWSER=firefox
 export EDITOR=vim
 export ENV="$HOME/.shrc"
 export GPG_TTY="$(tty)"

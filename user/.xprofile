@@ -1,2 +1,2 @@
 # define variables
-export BROWSER="brave"
+export BROWSER=firefox
