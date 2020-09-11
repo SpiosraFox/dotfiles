@@ -27,15 +27,15 @@
     Print
 
 # capture entire screenspace
-"maim -u "$HOME/screen.png""
+"maim -u "$HOME/var/tmp/screen.png""
     Mod4+Print
 
 # capture window
-"maim -ui "$(xdotool getactivewindow)" "$HOME/screen.png""
+"maim -ui "$(xdotool getactivewindow)" "$HOME/var/tmp/screen.png""
     Shift+Print
 
 # capture selection
-"maim -us "$HOME/screen.png""
+"maim -us "$HOME/var/tmp/screen.png""
     Mod1+Print
 
 # increase output volume
@@ -79,9 +79,9 @@
     XF86MonBrightnessDown
 
 # lock screen
-"i3lock -ec 000000 -i "$HOME/.lockscreen.png""
+"i3lock -ec 000000 -i "$XDG_DATA_HOME/lockscreen.png""
     Mod1+l
 
 # lock screen, suspending system as well
-"i3lock -ec 000000 -i "$HOME/.lockscreen.png"; systemctl suspend"
+"i3lock -ec 000000 -i "$XDG_DATA_HOME/lockscreen.png"; systemctl suspend"
     Mod1+Shift+l
