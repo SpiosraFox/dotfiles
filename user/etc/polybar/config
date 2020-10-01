@@ -17,6 +17,8 @@ modules-right = weather network audio microphone keyboard cpu-temperature gpu-te
 
 [module/audio]
 type = internal/pulseaudio
+interval = 2
+use-ui-max = false
 format-volume = <ramp-volume> <label-volume>
 format-muted = <label-muted>
 label-volume = %percentage%
@@ -98,6 +100,7 @@ type = custom/ipc
 hook-0 = ${env:MICROPHONE_SCRIPT}
 initial = 1
 format = <output>
+click-left = mute-microphone.sh
 
 [module/network]
 type = custom/script

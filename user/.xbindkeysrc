@@ -39,11 +39,11 @@
     Mod1+Print
 
 # increase output volume
-"$HOME/bin/raise-vol.sh"
+"$HOME/bin/raise-lower-volume.sh raise"
     XF86AudioRaiseVolume
 
 # decrease output volume
-"pactl set-sink-volume @DEFAULT_SINK@ -2%"
+"$HOME/bin/raise-lower-volume.sh lower"
     XF86AudioLowerVolume
 
 # mute output
