@@ -12,7 +12,7 @@ for mon in $monitors; do
 
     if [ "$mousex" -ge "$monx" ] && [ "$mousex" -le "$((monw+monx))" ]; then
         if [ "$mousey" -ge "$mony" ] && [ "$mousey" -le "$((monh+mony))" ]; then
-            maim -ug ""$monw"x"$monh"+"$monx"+"$mony"" "$HOME/screen.png"
+            maim -ug ""$monw"x"$monh"+"$monx"+"$mony"" "$HOME/var/tmp/screen.png"
             exit 0
         fi
     fi

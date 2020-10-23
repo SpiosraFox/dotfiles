@@ -22,6 +22,26 @@
 "rofi -show combi"
     Mod4+q
 
+# start web browser
+"$BROWSER"
+    XF86WWW
+
+# start calculator program
+"urxvt -e python"
+    XF86Calculator
+
+# start music program
+"spotify"
+    XF86Music
+
+# start Telegram
+"telegram-desktop"
+    XF86Messenger
+
+# start Discord
+"discord"
+    Shift+XF86Messenger
+
 # capture current screen
 "$HOME/bin/capture-current-screen.sh"
     Print
