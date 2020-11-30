@@ -1,4 +1,7 @@
 #!/bin/sh
+# Derived from Dalton Nell (naelstrof).
+# https://gist.github.com/naelstrof/f9b74b5221cdc324c0911c89a47b8d97
+
 monitors="$(xrandr | grep -o '[0-9]*x[0-9]*[+-][0-9]*[+-][0-9]*')"
 mouseloc="$(xdotool getmouselocation --shell | awk '{print $1,$2}' RS='')"
 mousex="$(echo "$mouseloc" | sed 's/X=\([0-9]\+\).*/\1/')"
