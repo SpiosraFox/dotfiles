@@ -1,107 +1,107 @@
-# start terminal
+# Start terminal
 "urxvt"
     Mod4+Return
 
-# start command launcher
+# Start command launcher
 "rofi -show run"
     Mod4+d
 
-# start command launcher and run command with privileges
+# Start command launcher and run command with privileges
 "rofi -show run -run-command 'gksudo {cmd}'"
     Mod4+Shift+d
 
-# start SSH launcher
+# Start SSH launcher
 "rofi -show ssh"
     Mod4+Shift+s
 
-# start password selection
+# Start password selection
 "rofi-pass"
     Mod4+p
 
-# start combi menu
+# Start combi menu
 "rofi -show combi"
     Mod4+q
 
-# start web browser
+# Start web browser
 "$BROWSER"
     XF86WWW
 
-# start calculator program
+# Start calculator program
 "urxvt -e python"
     XF86Calculator
 
-# start music program
+# Start music program
 "spotify"
     XF86Music
 
-# start Telegram
+# Start Telegram
 "telegram-desktop"
     XF86Messenger
 
-# start Discord
+# Start Discord
 "discord"
     Shift+XF86Messenger
 
-# capture current screen
+# Capture current screen
 "$HOME/bin/capture-current-screen.sh"
     Print
 
-# capture entire screenspace
+# Capture entire screenspace
 "maim -u "$HOME/var/tmp/screen.png""
     Mod4+Print
 
-# capture window
+# Capture window
 "maim -ui "$(xdotool getactivewindow)" "$HOME/var/tmp/screen.png""
     Shift+Print
 
-# capture selection
+# Capture selection
 "maim -us "$HOME/var/tmp/screen.png""
     Mod1+Print
 
-# increase output volume
+# Increase output volume
 "$HOME/bin/raise-lower-volume.sh raise"
     XF86AudioRaiseVolume
 
-# decrease output volume
+# Decrease output volume
 "$HOME/bin/raise-lower-volume.sh lower"
     XF86AudioLowerVolume
 
-# mute output
+# Mute output
 "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     XF86AudioMute
 
-# mute input
+# Mute input
 "$HOME/bin/mute-microphone.sh"
     shift+XF86AudioMute
 
-# play/pause media
+# Play/pause media
 "playerctl play-pause"
     XF86AudioPlay
 
-# next media track
+# Next media track
 "playerctl next"
     XF86AudioNext
 
-# previous media track
+# Previous media track
 "playerctl previous"
     XF86AudioPrev
 
-# stop media
+# Stop media
 "playerctl stop"
     XF86AudioStop
 
-# increase brightness
+# Increase brightness
 "brightnessctl set 5%+"
     XF86MonBrightnessUp
 
-# decrease brightness
+# Decrease brightness
 "brightnessctl set 5%-"
     XF86MonBrightnessDown
 
-# lock screen
+# Lock screen
 "i3lock -ec 000000 -i "$XDG_DATA_HOME/media/img/lockscreen.png""
     Mod1+l
 
-# lock screen, suspending system as well
+# Lock screen, suspending system as well
 "i3lock -ec 000000 -i "$XDG_DATA_HOME/media/img/lockscreen.png"; systemctl suspend"
     Mod1+Shift+l

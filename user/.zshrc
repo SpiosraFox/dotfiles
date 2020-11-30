@@ -1,12 +1,12 @@
-# source standard startup script
+# Source standard startup script.
 [[ -f "$ENV" ]] && . "$ENV"
 
-# initialize modules
+# Initialize modules.
 autoload -U compinit
 compinit
 
-# set prompt
+# Set prompt.
 PS1='[%T %n@%m %~]%# > '
 
-# binds
+# Binds
 bindkey -v

@@ -1,4 +1,4 @@
-source "gpg -dq $HOME/.mutt.gpg 2>/dev/null |"
+source "gpg -dq $XDG_CONFIG_HOME/mutt/mutt.gpg 2>/dev/null |"
 
 set imap_user="$my_email"
 set imap_pass="$my_pass"

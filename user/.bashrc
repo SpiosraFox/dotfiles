@@ -1,5 +1,5 @@
-# source standard startup script
+# Source standard startup script.
 [[ -f "$ENV" ]] && . "$ENV"
 
-# set prompt
+# Set prompt.
 PS1='[\A \u@\h \W]\$ '

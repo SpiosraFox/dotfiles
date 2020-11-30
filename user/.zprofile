@@ -1,2 +1,2 @@
-# source standard profile
+# Source standard profile.
 [[ -f "$HOME/.profile" ]] && . "$HOME/.profile"

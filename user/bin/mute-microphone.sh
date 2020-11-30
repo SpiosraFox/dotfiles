@@ -7,4 +7,4 @@ else
     audio="$XDG_DATA_HOME/media/audio/toggle_off.wav"
 fi
 polybar-msg -p "$(pidof polybar)" hook microphone 1
-exec paplay "$audio"
+[ -f "$audio" ] && exec paplay "$audio"

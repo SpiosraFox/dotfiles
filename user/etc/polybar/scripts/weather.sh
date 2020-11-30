@@ -1,4 +1,7 @@
 #!/bin/sh
+
+# Fetch and process weather data from OpenWeatherMap.
+
 err_str=" N/A"
 
 fetch_coords()
