@@ -17,6 +17,7 @@ fi
 # Aliases
 alias destroy-remapped-sinks="pacmd unload-module module-remap-sink"
 alias ls="ls --color=auto"
+alias mutt="TZ=UTC mutt"
 alias prename="perl-rename"
 alias vi="vim"
 
