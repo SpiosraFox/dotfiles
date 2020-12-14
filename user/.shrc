@@ -23,7 +23,7 @@ alias prename="perl-rename"
 alias vi="vim"
 
 # Functions
-batt() { cat /sys/class/power_supply/BAT1/status /sys/class/power_supply/BAT1/capacity | awk '{print}' ORS=' ' | sed '$s/.$//' && echo '%' }
+batt() { cat /sys/class/power_supply/BAT1/status /sys/class/power_supply/BAT1/capacity | awk '{print}' ORS=' ' | sed '$s/.$//' && echo '%'; }
 
 setup_remap_sink()
 {
