@@ -25,13 +25,20 @@ alias vi="vim"
 # Functions
 batt() { cat /sys/class/power_supply/BAT1/status /sys/class/power_supply/BAT1/capacity | awk '{print}' ORS=' ' | sed '$s/.$//' && echo '%'; }
 
+get_pa_master()
+{
+    [ "$1" = "source" ] && cmd="list-sources" || cmd="list-sinks"
+    master="$(pacmd $cmd | grep -A1 '*' | grep 'name' | tr -d '\t' | awk '{print $2}' | tr -d '<>')"
+    echo "$master"
+}
+
 setup_remap_sink()
 {
     ! pgrep -x pulseaudio > /dev/null && pulseaudio -D
 
     [ "$1" ] && name="$1" || name="remap_sink"
-    [ "$2" ] && sink="$2" || sink="$(pacmd list-sinks | grep -A1 '*' | grep 'name' | tr -d '\t' | awk '{print $2}' | tr -d '<>')"
+    [ "$2" ] && sink="$2" || sink=$(get_pa_master sink)
     [ "$3" ] && channel_n="$3" || channel_n="2"
 
-    pacmd load-module module-remap-sink sink_name="$name" master="$sink" channels="$channel_n" remix=no
+    pacmd load-module module-remap-sink sink_name="$name" master="$sink" channels="$channel_n" remix=no sink_properties=device.description="$name"
 }
