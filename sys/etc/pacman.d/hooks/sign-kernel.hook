@@ -3,9 +3,11 @@ Operation = Install
 Operation = Upgrade
 Type = Package
 Target = linux
+Target = linux-zen
 
 [Action]
-Description = Signing kernel...
+Description = Signing kernels...
 When = PostTransaction
 Exec = /usr/local/sbin/sign-kernel.sh
 Depends = sbsigntools
+NeedsTargets
