@@ -105,9 +105,6 @@ exec_always --no-startup-id "$XDG_CONFIG_HOME/polybar/launch.sh"
 
 exec --no-startup-id picom -b
 
-exec --no-startup-id lxpolkit
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 for_window [ class = ".*" ] border pixel 0
-gaps inner 4
-gaps outer 2
-smart_gaps on
