@@ -1,7 +1,7 @@
 [user]
 	name = spiosra
 	email = spiosra@spiosrafox.net
-	signingkey = 04B27BCF29774FD28E752C3FA85F4344CD8BE4B5
+	signingkey = D396AC8676BF894D5BE82AECAD2DFF24627840FF
 [commit]
 	gpgsign = true
 [pull]

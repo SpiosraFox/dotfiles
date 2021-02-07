@@ -23,7 +23,7 @@ set from="$my_email"
 set send_charset="utf-8"
 set ssl_force_tls=yes
 
-set pgp_default_key="0x04B27BCF29774FD28E752C3FA85F4344CD8BE4B5"
+set pgp_default_key="0xD396AC8676BF894D5BE82AECAD2DFF24627840FF"
 set pgp_decode_command="gpg --status-fd 2 %?p?--passphrase-fd 0? --no-verbose --quiet --batch --output - --decrypt  %f"
 set pgp_decrypt_command="gpg --status-fd 2 %?p?--passphrase-fd 0? --no-verbose --quiet --batch --output - --decrypt %f"
 set pgp_encrypt_only_command="pgpewrap gpg --no-verbose --quiet --batch --output - --textmode --encrypt --armor -- --recipient %r -- %f"
