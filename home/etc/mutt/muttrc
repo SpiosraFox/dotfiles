@@ -2,16 +2,16 @@ source "gpg --quiet --decrypt $XDG_CONFIG_HOME/mutt/mutt.gpg 2>/dev/null |"
 
 set realname="Timothy Burns"
 
-set imap_user="$my_email"
+set imap_user="$my_user"
 set imap_pass="$my_pass"
-set smtp_url="smtps://$my_email@$my_domain:465"
+set smtp_url="smtps://$my_user@$my_outgoing_server:465"
 set smtp_pass="$my_pass"
 
-set folder="imaps://$my_domain:993"
+set folder="imaps://$my_incoming_server:993"
 set spoolfile=+INBOX
-set postponed=+INBOX.Drafts
-set trash=+INBOX.Trash
-set record=+INBOX.Sent
+set postponed=+Drafts
+set trash=+Trash
+set record=+Sent
 
 set date_format="%Y-%m-%d %H:%M %Z %z"
 
