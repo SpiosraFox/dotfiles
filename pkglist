@@ -1,5 +1,6 @@
 base
 base-devel
+bind
 brightnessctl
 cmake
 dash
@@ -24,7 +25,6 @@ inkscape
 ispell
 jdk-openjdk
 jq
-keybase
 linux
 linux-headers
 lvm2
@@ -51,6 +51,7 @@ python
 qrencode
 rofi
 rofi-pass
+rsync
 rxvt-unicode
 sbsigntools
 texlive-most
