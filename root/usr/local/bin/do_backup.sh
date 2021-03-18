@@ -74,7 +74,7 @@ do_remote_backup()
 
     # Digitally sign archive.
     temp_signature="/tmp/${signature_name}"
-    if ! printf '\n' | "${sign}" -SHx "${temp_signature}" -s "${3}" -m "${temp_archive}" > /dev/null; then
+    if ! printf '\n' | "${sign}" -SHx "${temp_signature}" -s "${3}" -m "${temp_archive}" > /dev/null 2>&1; then
         print_error "Failed to digitally sign encrypted archive ${temp_archive}."
         rm -rf "${temp_archive}"
         return 1
@@ -219,7 +219,10 @@ print_message "Backing up ${1} ..."
 
 filename="$(datetime | sed 's/-//g; s/://g')"
 out="${filename}/${backup_data_directory}"
-link_dest="${local_repository}/${latest}"
+
+if [ -h "${local_repository}/${latest}" ]; then
+    link_dest="$(realpath "${local_repository}/${latest}")"
+fi
 
 # Check less than seven days since weekly backup copy to perform daily backup.
 if [ "$(find -L "${local_repository}/${latest_weekly}" -mtime -6 -print 2> /dev/null)" ]; then
