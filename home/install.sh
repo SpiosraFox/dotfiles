@@ -1,14 +1,10 @@
 #!/bin/sh
-export BASEDIR=$(cd $(dirname "$0") && pwd)
+# Symbolically link personal dotfiles to under home directory.
+
+basedir="$(dirname "$(realpath "${0}")")"
 
 # Create directory tree.
-find "$BASEDIR" -name '.git' -prune -o \! -path "$BASEDIR" -a -type d -exec sh -c '
-    directory=$(echo "$0" | sed '\''s|'"$BASEDIR/"'||'\'')
-    [ ! -d "$HOME/$directory" ] && mkdir -p "$HOME/$directory"
-    ' '{}' \;
+find "${basedir}" -name '.git' -prune -o ! -path "${basedir}" -a -type d -printf '%P\n' | xargs -I'{}' mkdir -p "${HOME}/{}"
 
 # Symlink files.
-find "$BASEDIR" -name '.git' -prune -o \! -name $(basename "$0") -a -type f -exec sh -c '
-    file=$(echo "$0" | sed '\''s|'"$BASEDIR/"'||'\'')
-    ln -fs "$BASEDIR/$file" "$HOME/$file"
-    ' '{}' \;
+find "${basedir}" -name '.git' -prune -o ! -path "${basedir}/$(basename "${0}")" -a -type f -printf '%P\n' | xargs -I'{}' ln -sf "${basedir}/{}" "${HOME}/{}"

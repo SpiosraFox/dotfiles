@@ -1,33 +1,35 @@
-### Define variables. ###
+# Shell-Related.
+export ENV="${HOME}/.shrc"
+export PATH="${PATH}:${HOME}/bin:${HOME}/local/bin"
 
-# Shell-Related
-export ENV="$HOME/.shrc"
-export PATH="$PATH:$HOME/bin:$HOME/local/bin"
+# XDG Base Directory Specification.
+export XDG_CACHE_HOME="${HOME}/var/cache"
+export XDG_CONFIG_HOME="${HOME}/etc"
+export XDG_DATA_HOME="${HOME}/local/share"
 
-# XDG Base Directory Specification
-export XDG_CACHE_HOME="$HOME/var/cache"
-export XDG_CONFIG_HOME="$HOME/etc"
-export XDG_DATA_HOME="$HOME/local/share"
+# Browser.
+if [ -z "${DISPLAY}" ]; then
+    export BROWSER=lynx
+else
+    export BROWSER=firefox
+fi
 
-# Browser
-[ -z "$DISPLAY" ] && export BROWSER=lynx || export BROWSER=firefox
-
-# Editors
+# Editors.
 export EDITOR=vim
-export VISUAL="$EDITOR"
+export VISUAL="${EDITOR}"
 
-# GnuPG
+# GnuPG.
 export GPG_TTY="$(tty)"
 
-# less
+# less.
 export LESSHISTFILE="-"
 export PAGER=less
 
-
-### Other operations. ###
+# ledger.
+export LEDGER_FILE="${HOME}/share/docs/ledger/ledger"
 
 # Source standard startup script.
-[ -f "$ENV" ] && . "$ENV"
+[ -f "${ENV}" ] && . "${ENV}"
 
 # Set umask.
 umask 0022

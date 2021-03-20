@@ -1,4 +1,4 @@
-source "gpg --quiet --decrypt $XDG_CONFIG_HOME/mutt/mutt.gpg 2>/dev/null |"
+source "age -d ${XDG_CONFIG_HOME}/mutt/mutt.age |"
 
 set realname="Timothy Burns"
 
@@ -39,7 +39,7 @@ set pgp_check_gpg_decrypt_status_fd
 
 set crypt_autosign=yes
 
-set mailcap_path="$XDG_CONFIG_HOME/mutt/mailcap"
+set mailcap_path="${XDG_CONFIG_HOME}/mutt/mailcap"
 
 bind index G        imap-fetch-mail
 
