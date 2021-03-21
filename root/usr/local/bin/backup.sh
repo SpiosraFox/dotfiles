@@ -20,7 +20,7 @@
 # We need to keep track of the mount point and mapper name globally for the functions.
 # Let's sanitize mount point location first, just in case?
 mapper_name="${4}"
-mount_point="$(realpath -ms "${5}")"
+mount_point="$(realpath "${5}")"
 
 # Functions.
 finish()

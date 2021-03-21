@@ -233,7 +233,7 @@ if [ "$(find -L "${local_repository}/${latest_weekly}" -mtime -6 -print 2> /dev/
         daily="daily0"
     else
         daily_i="$(basename "${latest_resolved%/*/*}")"
-        daily_i="${daily#${daily%?}}"
+        daily_i="${daily_i#${daily_i%?}}"
         daily="daily$((daily_i + 1))"
     fi
 
