@@ -66,7 +66,8 @@ if [ "${6}" = "DELETE" ]; then
     fi
 fi
 # Create archive and securely copy to remote repository.
-if ! create_archive "${1}" "${4}" "${5}" | ssh "${2%%:*}" "cat > ${2##*:}/${3} && chmod 600 ${2##*:}/${3}"; then
+printf 'remote-backup.sh: Securely copying archive to remote repository %s...\n' "'${2##*@}'"
+if ! create_archive "${1}" "${4}" "${5}" | ssh "${2%%:*}" "umask 0077; cat > ${2##*:}/${3}"; then
     printf 'remote-backup.sh: Failed to create or copy archive.\n' 1>&2
     exit 1
 fi
