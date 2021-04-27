@@ -9,8 +9,7 @@
 #   $3: Archive name.
 #   $4: Compression utility to use. Pass empty string to disable compression.
 #   $5: Age public keys to encrypt to. Pass empty string to disable encryption.
-#   $6: If 'DELETE', delete contents of remote repository before copying. Default
-#       is to leave existing files as they are and not delete anything.
+#   $6: If 'DELETE', delete contents of remote destination before copying.
 
 if [ -z "${1}" ] || [ -z "${2}" ] || [ -z "${3}" ] \
 || [ -z "${4}" ] || [ -z "${5}" ]; then

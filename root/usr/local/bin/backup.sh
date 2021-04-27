@@ -1,5 +1,6 @@
 #!/bin/sh
-# Backup data to a locally accessible and encrypted device.
+# Open and mount LUKS device for backing up data to and call user-defined
+# script for executing backup logic.
 #
 # Parameters.
 #   $1: LUKS device UUID.
@@ -16,7 +17,6 @@ if [ -z "${1}" ] || [ -z "${2}" ] || [ -z "${3}" ] || [ -z "${4}" ] || [ -z "${5
     printf 'Usage: backup.sh LUKS_UUID OPENED_UUID KEY MAPPER_NAME MOUNT_POINT BACKUP_SCRIPT [VARARGS]\n' 1>&2
     exit 1
 fi
-
 # We need to keep the mount point and mapper name globally for the functions.
 mapper_name="${4}"
 mount_point="$(realpath "${5}")"
