@@ -13,10 +13,11 @@ do_local_backup()
     # Parameters.
     #   $1: Source path.
     #   $2: Repository path.
-    #   $3: If given, path to file containing rsync exclusions.
-    #   $4: If given, path to file containing rsync inclusions.
+    #   $3: User to execute as.
+    #   $4: If given, path to file containing rsync exclusions.
+    #   $5: If given, path to file containing rsync inclusions.
 
-    /usr/local/bin/backup-rsync.sh "${1}" "${2}" "${3}" "${4}"
+    runuser -l "${3}" -c "/usr/local/bin/backup-rsync.sh ${1} ${2} ${4} ${5}"
 }
 
 do_remote_backup()
@@ -26,12 +27,13 @@ do_remote_backup()
     # Parameters.
     #   $1: Repository path.
     #   $2: Remote destination. E.g. user@host:/path
-    #   $3: Archive name.
-    #   $4: Compression utility to use. Pass empty string to disable compression.
-    #   $5: Age public keys to encrypt to. Pass empty string to disable encryption.
-    #   $6: If 'DELETE', delete contents of remote destination before copying.
+    #   $3: User to execute as.
+    #   $4: Archive name.
+    #   $5: Compression utility to use. Pass empty string to disable compression.
+    #   $6: Age public keys to encrypt to. Pass empty string to disable encryption.
+    #   $7: If 'DELETE', delete contents of remote destination before copying.
 
-    /usr/local/bin/remote-backup.sh "${1}/latest" "${2}" "${3}" "${4}" "${5}" "${6}"
+    runuser -l "${3}" -c "/usr/local/bin/remote-backup.sh ${1}/latest ${2} ${4} ${5} ${6} ${7}"
 }
 
 # Call do_local_backup() for each data set to backup to LUKS device.
