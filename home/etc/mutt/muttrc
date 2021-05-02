@@ -1,6 +1,4 @@
-source "age -d ${XDG_CONFIG_HOME}/mutt/mutt.age |"
-
-set realname="Timothy Burns"
+source "${XDG_CONFIG_HOME}/mutt/mutt"
 
 set imap_user="$my_user"
 set imap_pass="$my_pass"
