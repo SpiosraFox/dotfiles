@@ -28,12 +28,13 @@ do_remote_backup()
     #   $1: Repository path.
     #   $2: Remote destination. E.g. user@host:/path
     #   $3: User to execute as.
-    #   $4: Archive name.
-    #   $5: Compression utility to use. Pass empty string to disable compression.
-    #   $6: Age public keys to encrypt to. Pass empty string to disable encryption.
-    #   $7: If 'DELETE', delete contents of remote destination before copying.
+    #   $4: Private SSH key.
+    #   $5: Archive name.
+    #   $6: Compression utility to use. Pass empty string to disable compression.
+    #   $7: Age public keys to encrypt to. Pass empty string to disable encryption.
+    #   $8: If 'DELETE', delete contents of remote destination before copying.
 
-    runuser -l "${3}" -c "/usr/local/bin/remote-backup.sh ${1}/latest ${2} ${4} ${5} ${6} ${7}"
+    runuser -l "${3}" -c "/usr/local/bin/remote-backup.sh ${1}/latest ${2} ${4} ${5} ${6} ${7} ${8}"
 }
 
 # Call do_local_backup() for each data set to backup to LUKS device.
