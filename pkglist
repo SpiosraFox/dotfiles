@@ -1,8 +1,12 @@
+age
 base
 base-devel
 bind
 brightnessctl
 cmake
+cronie
+cups
+cups-pdf
 dash
 dhcpcd
 dialog
@@ -23,6 +27,8 @@ inetutils
 inkscape
 ispell
 jq
+khard
+ledger
 linux
 linux-headers
 lvm2
@@ -32,7 +38,9 @@ man-db
 man-pages
 mpv
 mutt
+neofetch
 netctl
+nmap
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
@@ -48,6 +56,8 @@ rofi
 rofi-pass
 rsync
 rxvt-unicode
+sane
+sane-airscan
 sbsigntools
 texlive-most
 tmux
