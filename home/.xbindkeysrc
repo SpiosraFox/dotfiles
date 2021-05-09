@@ -91,11 +91,11 @@
     XF86AudioStop
 
 # Increase brightness
-"brightnessctl set 5%+"
+"xbacklight +5"
     XF86MonBrightnessUp
 
 # Decrease brightness
-"brightnessctl set 5%-"
+"xbacklight -5"
     XF86MonBrightnessDown
 
 # Lock screen

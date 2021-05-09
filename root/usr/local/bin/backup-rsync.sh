@@ -22,6 +22,7 @@ set -- \
     --xattrs \
     --numeric-ids \
     --mkpath \
+    --rsh=ssh \
     --quiet \
     --delete \
     --link-dest="${repo}/latest" \
