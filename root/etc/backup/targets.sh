@@ -14,10 +14,9 @@ do_local_backup()
     #   $1: Source path.
     #   $2: Repository path.
     #   $3: User to execute as.
-    #   $4: If given, path to file containing rsync exclusions.
-    #   $5: If given, path to file containing rsync inclusions.
+    #	$4: If given, filter rule file.
 
-    runuser -l "${3}" -c "/usr/local/bin/backup-rsync.sh ${1} ${2} ${4} ${5}"
+    runuser -l "${3}" -c "/usr/local/bin/backup-rsync.sh ${1} ${2} ${4}"
 }
 
 do_remote_backup()

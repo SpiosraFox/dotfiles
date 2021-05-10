@@ -1,20 +1,18 @@
 #!/bin/sh
-# Backup files to a locally accessible rsync repository.
+# Backup files to a local rsync repository.
 #
 # Parameters.
 #   $1: Source path.
 #   $2: Repository path.
-#   $3: If given, path to file containing rsync exclusions.
-#   $4: If given, path to file containing rsync inclusions.
+#   $3: If given, filter rule file.
 
 if [ -z "${1}" ] || [ -z "${2}" ]; then
-    printf 'Usage: backup-rsync.sh SRC REPO [EXCLUDE_FILE] [INCLUDE_FILE]\n' 1>&2
+    printf 'Usage: backup-rsync.sh SRC REPO [FILTER_RULES]\n' 1>&2
     exit 1
 fi
 src="${1}"
 repo="${2}"
-exclude_file="${3}"
-include_file="${4}"
+filter="${3}"
 set -- \
     --archive \
     --hard-links \
@@ -25,20 +23,9 @@ set -- \
     --rsh=ssh \
     --quiet \
     --delete \
-    --link-dest="${repo}/latest" \
-    --exclude="/dev/*" \
-    --exclude="/media/*" \
-    --exclude="/mnt/*" \
-    --exclude="/proc/*" \
-    --exclude="/run/*" \
-    --exclude="/sys/*" \
-    --exclude="/tmp/*" \
-    --exclude=lost+found
-if [ "${include_file}" ]; then
-    set -- "$@" --include-from="${include_file}"
-fi
-if [ "${exclude_file}" ]; then
-    set -- "$@" --exclude-from="${exclude_file}"
+    --link-dest="${repo}/latest"
+if [ "${filter}" ]; then
+    set -- "$@" --filter="merge ${filter}"
 fi
 # Create daily day of week directories as required.
 if [ ! -d "${repo}/daily" ]; then
