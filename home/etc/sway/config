@@ -7,10 +7,16 @@ floating_modifier $mod
 bindsym $mod+Shift+Return exec alacritty
 bindsym $mod+p exec bemenu-run -n
 
+bindsym Print exec "grim ${HOME}/var/tmp/screen.png"
+bindsym Mod1+Print exec "slurp | grim -g- ${HOME}/var/tmp/screen.png"
 bindsym XF86AudioRaiseVolume exec "amixer -q sset ${ALSA_DEFAULT_PLAYBACK_CONTROL} 4%+ unmute"
 bindsym XF86AudioLowerVolume exec "amixer -q sset ${ALSA_DEFAULT_PLAYBACK_CONTROL} 4%- unmute"
 bindsym XF86AudioMute exec "amixer -q sset ${ALSA_DEFAULT_PLAYBACK_CONTROL} toggle"
 bindsym Shift+XF86AudioMute exec "amixer -q sset ${ALSA_DEFAULT_CAPTURE_CONTROL} capture toggle"
+bindsym XF86AudioPlay exec "playerctl play-pause"
+bindsym XF86AudioNext exec "playerctl next"
+bindsym XF86AudioPrev exec "playerctl previous"
+bindsym XF86AudioStop exec "playerctl stop"
 
 bindsym $mod+Shift+c kill
 bindsym $mod+Shift+q exec "swaymsg exit"
