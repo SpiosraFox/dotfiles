@@ -2,3 +2,17 @@
 export BROWSER=firefox
 export MOZ_ENABLE_WAYLAND=1
 export NO_AT_BRIDGE=1
+
+# Misc.
+if [ -x /usr/bin/gsettings ]; then
+    config="${XDG_CONFIG_HOME}/gtk-3.0/settings.ini"
+    schema="org.gnome.desktop.interface"
+    gsettings set "${schema}" gtk-theme \
+        "$(grep 'gtk-theme-name' "${config}" | cut -d'=' -f2)"
+    gsettings set "${schema}" icon-theme \
+        "$(grep 'gtk-icon-theme-name' "${config}" | cut -d'=' -f2)"
+    gsettings set "${schema}" cursor-theme \
+        "$(grep 'gtk-cursor-theme-name' "${config}" | cut -d'=' -f2)"
+    gsettings set "${schema}" font-name \
+        "$(grep 'gtk-font-name' "${config}" | cut -d'=' -f2)"
+fi
