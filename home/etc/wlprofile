@@ -1,0 +1,4 @@
+# Exports.
+export BROWSER=firefox
+export MOZ_ENABLE_WAYLAND=1
+export NO_AT_BRIDGE=1

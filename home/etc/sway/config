@@ -4,9 +4,16 @@ font pango:sans 10
 
 floating_modifier $mod
 
-bindsym $mod+Shift+Return exec urxvt
+bindsym $mod+Shift+Return exec alacritty
+bindsym $mod+p exec bemenu-run -n
+
+bindsym XF86AudioRaiseVolume exec "amixer -q sset ${ALSA_DEFAULT_PLAYBACK_CONTROL} 4%+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer -q sset ${ALSA_DEFAULT_PLAYBACK_CONTROL} 4%- unmute"
+bindsym XF86AudioMute exec "amixer -q sset ${ALSA_DEFAULT_PLAYBACK_CONTROL} toggle"
+bindsym Shift+XF86AudioMute exec "amixer -q sset ${ALSA_DEFAULT_CAPTURE_CONTROL} capture toggle"
 
 bindsym $mod+Shift+c kill
+bindsym $mod+Shift+q exec "swaymsg exit"
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -78,11 +85,9 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 bindsym $mod+o move workspace to output right
 
-bindsym $mod+Shift+e reload
+bindsym $mod+Shift+z reload
 
 bindsym $mod+Shift+r restart
-
-bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 mode "resize" {
         bindsym h resize shrink width 10 px or 10 ppt
@@ -102,6 +107,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec_always --no-startup-id "$XDG_CONFIG_HOME/polybar/launch.sh"
+output * bg "${XDG_CONFIG_HOME}/background.png" fit #000000
 
-for_window [ class = ".*" ] border pixel 0
+exec --no-startup-id wl-paste -t text -w clipman store --histfile="${XDG_CACHE_HOME}/clipman/clipman_hist.json"
+exec_always --no-startup-id "${XDG_CONFIG_HOME}/waybar/launch.sh"
+
+default_border none

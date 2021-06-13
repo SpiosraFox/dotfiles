@@ -20,6 +20,7 @@ set -- \
     --xattrs \
     --numeric-ids \
     --mkpath \
+    --one-file-system \
     --rsh=ssh \
     --quiet \
     --delete \

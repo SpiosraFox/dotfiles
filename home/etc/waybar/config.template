@@ -1,0 +1,50 @@
+{
+    "layer": "top",
+    "modules-left": [ "sway/workspaces" ],
+    "modules-right": [ "network",
+                       "custom/microphone",
+                       "custom/audio",
+                       "temperature#cpu",
+                       "temperature#gpu",
+                       "clock", ],
+    "sway/workspaces": {
+        "format": "{name}",
+    },
+    "network": {
+        "interface": "{}",
+        "interval": 5,
+        "format": "{ifname}",
+        "format-ethernet": " {ipaddr}",
+        "format-wifi": "{icon} {essid},{ipaddr}",
+        "format-disconnected": "No Network",
+        "format-disabled": "Networking Disabled",
+    },
+    "custom/microphone": {
+        "exec": "{}",
+        "interval": 1,
+    },
+    "custom/audio": {
+        "exec": "{}",
+        "interval": 1,
+    },
+    "temperature#cpu": {
+        "hwmon-path": "{}",
+        "critical-threshold": 80,
+        "interval": 1,
+        "format-critical": "{temperatureC}℃",
+        "format": "{temperatureC}℃",
+        "format-icons": [ "","","", ],
+    },
+    "temperature#gpu": {
+        "hwmon-path": "{}",
+        "critical-threshold": 80,
+        "interval": 1,
+        "format-critical": "{temperatureC}℃",
+        "format": "{temperatureC}℃",
+        "format-icons": [ "","","", ],
+    },
+    "clock": {
+        "interval": 60,
+        "format": " {:%Y-%m-%d %H:%M}",
+    },
+}

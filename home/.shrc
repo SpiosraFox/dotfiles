@@ -8,37 +8,25 @@ case "$-" in
         ;;
 esac
 
+# Set prompt.
+case "${SHELL}" in
+    */sh)
+        PS1="[${USER}@$(hostname)] > "
+        ;;
+    *)
+        # Prompt is set elsewhere.
+        ;;
+esac
+
 # Start and/or set ssh-agent variables.
-if ! pgrep -xu "$(id -ru)" ssh-agent > /dev/null; then
-    ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
+if pgrep -x sshd >/dev/null && ! pgrep -xu "$(id -ru)" ssh-agent >/dev/null; then
+    ssh-agent > "${XDG_RUNTIME_DIR}"/ssh-agent.env
 fi
-[ -z "$SSH_AUTH_SOCK" ] && . "$XDG_RUNTIME_DIR/ssh-agent.env" > /dev/null
+[ -z "${SSH_AUTH_SOCK}" ] && . "${XDG_RUNTIME_DIR}"/ssh-agent.env >/dev/null
 
 # Aliases
-alias destroy-remapped-sinks="pacmd unload-module module-remap-sink"
 alias git="TZ=UTC git"
 alias ls="ls --color=auto"
 alias mutt="TZ=UTC mutt"
-alias prename="perl-rename"
-alias vi="vim"
 
-# Functions
-batt() { cat /sys/class/power_supply/BAT1/status /sys/class/power_supply/BAT1/capacity | awk '{print}' ORS=' ' | sed '$s/.$//' && echo '%'; }
-
-get_pa_master()
-{
-    [ "$1" = "source" ] && cmd="list-sources" || cmd="list-sinks"
-    master="$(pacmd $cmd | grep -A1 '*' | grep 'name' | tr -d '\t' | awk '{print $2}' | tr -d '<>')"
-    echo "$master"
-}
-
-setup_remap_sink()
-{
-    ! pgrep -x pulseaudio > /dev/null && pulseaudio -D
-
-    [ "$1" ] && name="$1" || name="remap_sink"
-    [ "$2" ] && sink="$2" || sink=$(get_pa_master sink)
-    [ "$3" ] && channel_n="$3" || channel_n="2"
-
-    pacmd load-module module-remap-sink sink_name="$name" master="$sink" channels="$channel_n" remix=no sink_properties=device.description="$name"
-}
+[ "${EDITOR}" = "vim" ] && alias vi=vim

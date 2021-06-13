@@ -10,22 +10,10 @@ font-0 = DejaVu Sans:style=Book:size=10
 font-1 = Font Awesome 5 Free:style=Solid
 enable-ipc = true
 modules-left = i3
-modules-right = weather network audio microphone keyboard cpu-temperature gpu-temperature date
+modules-right = weather network microphone keyboard cpu-temperature gpu-temperature date
 
 
 ; ----- MODULES -----
-
-[module/audio]
-type = internal/pulseaudio
-interval = 2
-use-ui-max = false
-format-volume = <ramp-volume> <label-volume>
-format-muted = <label-muted>
-label-volume = %percentage%
-label-muted = 
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
 
 [module/battery]
 type = internal/battery
@@ -96,11 +84,9 @@ type = internal/xkeyboard
 label-layout =  %name%
 
 [module/microphone]
-type = custom/ipc
-hook-0 = ${env:MICROPHONE_SCRIPT}
-initial = 1
-format = <output>
-click-left = mute-microphone.sh
+type = custom/script
+interval = 1
+exec = ${env:MICROPHONE_SCRIPT}
 
 [module/network]
 type = custom/script

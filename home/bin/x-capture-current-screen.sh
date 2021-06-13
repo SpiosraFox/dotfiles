@@ -7,7 +7,7 @@ mouseloc="$(xdotool getmouselocation --shell | awk '{print $1,$2}' RS='')"
 mousex="$(printf '%s' "${mouseloc}" | sed 's/X=\([0-9]\+\).*/\1/')"
 mousey="$(printf '%s' "${mouseloc}" | sed 's/.*Y=\([0-9]\+\).*/\1/')"
 
-printf '%s\n' "${monitors}" | while read -r mon; do
+printf '%s\n' ${monitors} | while read -r mon; do
     monw="$(printf '%s' "${mon}" | awk '{print $1}' FS='[x+]')"
     monh="$(printf '%s' "${mon}" | awk '{print $2}' FS='[x+]')"
     monx="$(printf '%s' "${mon}" | awk '{print $3}' FS='[x+]')"
