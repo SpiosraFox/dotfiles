@@ -53,19 +53,5 @@ export PASSWORD_STORE_DIR="${XDG_STATE_HOME}/password-store"
 # Xorg.
 export XAUTHORITY="${XDG_RUNTIME_DIR}/Xauthority"
 
-# GTK.
-if [ -x /usr/bin/gsettings ]; then
-    config="${XDG_CONFIG_HOME}/gtk-3.0/settings.ini"
-    schema="org.gnome.desktop.interface"
-    gsettings set "${schema}" gtk-theme \
-        "$(grep -e 'gtk-theme-name' "${config}" | cut -d'=' -f2)"
-    gsettings set "${schema}" icon-theme \
-        "$(grep -e 'gtk-icon-theme-name' "${config}" | cut -d'=' -f2)"
-    gsettings set "${schema}" cursor-theme \
-        "$(grep -e 'gtk-cursor-theme-name' "${config}" | cut -d'=' -f2)"
-    gsettings set "${schema}" font-name \
-        "$(grep -e 'gtk-font-name' "${config}" | cut -d'=' -f2)"
-fi
-
 # Set umask.
 umask 022
