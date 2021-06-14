@@ -9,12 +9,12 @@
 #   $3: Private SSH key.
 #   $4: Archive name.
 #   $5: Compression utility to use. Pass empty string to disable compression.
-#   $6: Age public keys to encrypt to. Pass empty string to disable encryption.
+#   $6: Age public key to encrypt to. Pass empty string to disable encryption.
 #   $7: If 'DELETE', delete contents of remote destination before copying.
 
 if [ -z "${1}" ] || [ -z "${2}" ] || [ -z "${3}" ] \
 || [ -z "${4}" ] || [ -z "${5}" ] || [ -z "${6}" ]; then
-    printf "Usage: remote-backup.sh SRC REMOTE_DEST SSH_KEY ARCHIVE_NAME COMPRESS_UTIL PUBKEYS ['DELETE']\n" 1>&2
+    printf "Usage: remote-backup.sh SRC REMOTE_DEST SSH_KEY ARCHIVE_NAME COMPRESS_UTIL PUBKEY ['DELETE']\n" 1>&2
     exit 1
 fi
 
@@ -26,7 +26,7 @@ create_archive()
     # Parameters.
     #   $1: Source directory.
     #   $2: Compression utility to use. Pass empty string to disable compression.
-    #   $3: Age public keys to encrypt to. Pass empty string to disable encryption.
+    #   $3: Age public key to encrypt to. Pass empty string to disable encryption.
 
     src="${1}"
     compress="${2}"
@@ -38,12 +38,12 @@ create_archive()
         --same-owner \
         --acls \
         --xattrs
-    if [ -n "${compress}" ]; then
+    if [ "${compress}" ]; then
         set -- "$@" \
             --use-compress-program="${compress}"
     fi
-    if [ -n "${encrypt}" ]; then
-        if ! (cd "${src}" || exit 1; tar "$@" -f - -- * | age -R "${encrypt}"); then
+    if [ "${encrypt}" ]; then
+        if ! (cd "${src}" || exit 1; tar "$@" -f - -- * | age -r "${encrypt}"); then
             exit 1
         fi
     else
