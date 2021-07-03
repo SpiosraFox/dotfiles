@@ -43,11 +43,11 @@ create_archive()
             --use-compress-program="${compress}"
     fi
     if [ "${encrypt}" ]; then
-        if ! (cd "${src}" || exit 1; tar "$@" -f - -- * | age -r "${encrypt}"); then
+        if ! (cd "${src}" || exit 1; tar "$@" -f - -- . | age -r "${encrypt}"); then
             exit 1
         fi
     else
-        if ! (cd "${src}" || exit 1; tar "$@" -f - -- *); then
+        if ! (cd "${src}" || exit 1; tar "$@" -f - -- .); then
             exit 1
         fi
     fi

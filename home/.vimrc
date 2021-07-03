@@ -1,4 +1,4 @@
-colorscheme industry
+colorscheme nord
 filetype plugin indent on
 syntax on
 

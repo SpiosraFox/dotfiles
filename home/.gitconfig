@@ -1,8 +1,10 @@
+[init]
+    defaultBranch = master
 [user]
-	name = spiosra
-	email = spiosra@spiosrafox.net
-	signingkey = D396AC8676BF894D5BE82AECAD2DFF24627840FF
+    name = spiosra
+    email = spiosra@spiosrafox.net
+    signingkey = D396AC8676BF894D5BE82AECAD2DFF24627840FF
 [tag]
     gpgSign = true
 [pull]
-	rebase = false
+    rebase = false

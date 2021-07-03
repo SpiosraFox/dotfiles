@@ -11,6 +11,8 @@ set postponed=+Drafts
 set trash=+Trash
 set record=+Sent
 
+set ispell="aspell --mode=email -c"
+
 set date_format="%Y-%m-%d %H:%M %Z %z"
 
 set include=yes
